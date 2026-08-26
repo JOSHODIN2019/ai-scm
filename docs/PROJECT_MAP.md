@@ -29,15 +29,16 @@ emma/
 │       │   ├── landing/            Public marketing page + sections
 │       │   ├── auth/                Login, Register, AuthLayout
 │       │   ├── dashboard/           DashboardLayout, Sidebar/Topbar, nav items, DashboardHome
-│       │   ├── projects/            projectsApi.ts, ProjectsListPage, ProjectDetailPage
+│       │   ├── projects/            projectsApi.ts, githubApi.ts, ProjectsListPage,
+│       │   │                        ProjectDetailPage, components/CommitHistoryList.tsx
 │       │   ├── changes/              changesApi.ts, ChangeDetailPage
 │       │   ├── analysis/             analysisApi.ts (AI analyze/list)
-│       │   ├── evaluations/          evaluationsApi.ts, EvaluationDashboardPage
 │       │   └── profile/              ProfilePage
 │       ├── lib/
 │       │   ├── api.ts               fetch wrapper (auth header, error unwrapping)
 │       │   ├── types.ts             Shared TS types matching backend schemas
-│       │   ├── useTheme.ts          Light/dark mode toggle
+│       │   ├── useTheme.ts          Dark/light mode hook -- currently unused; app is
+│       │   │                        forced dark-only (index.html), no toggle in the UI
 │       │   └── auth/                AuthContext, tokenStorage
 │       ├── pages/NotFoundPage.tsx
 │       ├── index.css               Design tokens (copied from IDRIS: Tailwind v4 + OKLCH palette)
@@ -60,7 +61,7 @@ emma/
         ├── services/
         │   ├── auth_service.py     get_current_user dependency
         │   ├── ai_service.py       Isolated AI interface: mock analyzer + OpenAI call
-        │   └── metrics_service.py  Accuracy/precision/recall/F1/confusion matrix
+        │   └── github_service.py   Isolated GitHub REST API client
         └── routes/
-            ├── auth.py, projects.py, changes.py, analyses.py, evaluations.py
+            ├── auth.py, projects.py, changes.py, analyses.py
 ```

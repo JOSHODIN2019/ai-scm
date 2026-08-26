@@ -47,8 +47,8 @@ Backend (FastAPI)
 way `ai_service.py` isolates OpenAI — nothing else calls GitHub
 directly. It's additive, not a parallel system: a commit imported from
 GitHub becomes an ordinary `software_changes` document (`commit_id`
-holds the SHA), so the existing analysis and evaluation pipeline needs
-zero changes to work on it. Public repos work unauthenticated; set
+holds the SHA), so the existing analysis pipeline needs zero changes to
+work on it. Public repos work unauthenticated; set
 `GITHUB_TOKEN` for higher rate limits or private repos.
 
 ## Request flow: analyzing a change

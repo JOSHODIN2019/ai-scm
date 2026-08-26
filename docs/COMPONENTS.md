@@ -41,8 +41,7 @@ topbar).
 | Projects list | `features/projects/ProjectsListPage.tsx` | List + create-project dialog |
 | Project detail | `features/projects/ProjectDetailPage.tsx` | Project info, commit history (if repo URL set) + `CommitHistoryList`, changes list, add-change dialog, delete |
 | Commit history | `features/projects/components/CommitHistoryList.tsx` | Paginated GitHub commit table with an Analyze button per row (2026-08-25) |
-| Change detail | `features/changes/ChangeDetailPage.tsx` | Diff viewer, run analysis, analysis history, evaluate form |
-| Evaluation dashboard | `features/evaluations/EvaluationDashboardPage.tsx` | Accuracy, precision/recall/F1 table, confusion matrix |
+| Change detail | `features/changes/ChangeDetailPage.tsx` | Diff viewer, run analysis, analysis history |
 | Profile | `features/profile/ProfilePage.tsx` | Account info, sign out |
 
 Roadmap stages 15 (changes list), 17 (change details), and 21–27
@@ -59,4 +58,4 @@ calls in service modules")
 
 `lib/api.ts` (fetch wrapper), `lib/auth/AuthContext.tsx`,
 `features/projects/projectsApi.ts`, `features/changes/changesApi.ts`,
-`features/analysis/analysisApi.ts`, `features/evaluations/evaluationsApi.ts`.
+`features/analysis/analysisApi.ts`, `features/projects/githubApi.ts`.

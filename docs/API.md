@@ -55,14 +55,6 @@ Public repositories work unauthenticated (GitHub's 60 req/hr limit). Set
 `GITHUB_TOKEN` in `backend/.env` to raise that ceiling or access private
 repos — never sent to the frontend.
 
-## Evaluation
-
-| Method | Path | Description |
-|---|---|---|
-| GET | `/api/evaluations` | List the current user's evaluation records |
-| POST | `/api/evaluations` | Record expected labels against an analysis result |
-| GET | `/api/evaluations/metrics` | Aggregate accuracy / precision / recall / F1 / confusion matrix |
-
 ## Health
 
 | Method | Path | Description |

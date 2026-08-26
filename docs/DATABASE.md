@@ -56,28 +56,12 @@ analyzed_at     ISO 8601 str
 created_at      ISO 8601 str
 ```
 
-### `evaluation_records`
-```text
-_id                     ObjectId (PK)
-result_id               str  (-> analysis_results._id)
-user_id                 str (indexed; the record's owner, derived via change -> project)
-expected_change_type    ChangeType
-expected_risk_level     RiskLevel
-predicted_change_type   ChangeType  -- copied from the analysis at evaluation time
-predicted_risk_level    RiskLevel
-is_change_type_correct  bool
-is_risk_level_correct   bool
-notes                   str | null
-evaluated_at            ISO 8601 str
-```
-
 ## Relationships
 
 ```text
 users 1───* projects
 projects 1───* software_changes
 software_changes 1───* analysis_results
-analysis_results 1───* evaluation_records
 ```
 
 Ownership is enforced at the API layer: every route re-derives the
@@ -90,5 +74,7 @@ Created at app startup (`app/main.py` lifespan):
 - `users.email` (unique)
 - `projects.user_id`
 - `software_changes.project_id`
+- `software_changes.(project_id, commit_id)` (non-unique — speeds up the
+  GitHub duplicate-import lookup; not unique on purpose, see
+  `PROJECT_MEMORY.md` §34 for why)
 - `analysis_results.change_id`
-- `evaluation_records.user_id`
